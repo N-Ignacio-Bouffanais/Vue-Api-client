@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from "vue"
 
-const FormRegister = defineAsyncComponent(() => import("../components/RegisterForm.vue"))
+const LoginForm = defineAsyncComponent(() => import("../components/LoginForm.vue"))
 </script>
 
 <template>
     <h1>Login</h1>
-    <div class="container">
-        <FormRegister />
-    </div>
+    <LoginForm />
 </template>
 
 <style lang="scss">
