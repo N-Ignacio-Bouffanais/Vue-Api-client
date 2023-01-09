@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-import { ref, watchEffect } from "vue"
+import { ref } from "vue"
 
 let email = ref("")
 let password = ref("")
 
-watchEffect(()=>{
+const handleSubmit = ()=> {
     console.log(email.value)
     console.log(password.value)
-})
+}
 
 </script>
 <template>
-    <form  class="form-container">
+    <form @submit.prevent="handleSubmit()" class="form-container">
         <p class="input-form">
             <input type="email" name="email" id="email" placeholder="Enter your email" v-model="email">
         </p>
