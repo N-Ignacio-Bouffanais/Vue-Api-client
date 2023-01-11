@@ -3,10 +3,10 @@
 
 ## Tecnologies that I used
 - Typescript
-- Vue3
+- Vue3 with Vue-router version 4
 - SASS
-- Pinia
-- Axios
+- Pinia and plugin(pinia-plugin-persistedstate) to persist the state
+- Axios with async await
 
 ## Axios with Vuejs Composition API example
 ```ts
@@ -35,4 +35,43 @@ const HandleSubmit = async () => {
         </p>
         <button>Save</button>
     </form>
+```
+
+## How Protect routes
+```ts
+import { createRouter, createWebHistory } from "vue-router";
+import { useAuthStore } from "../store/auth.state";
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    {
+      path: "/login",
+      name: "Login",
+      component: () => import("../views/LoginView.vue"),
+    },
+    {
+      path: "/compras",
+      name: "Compras",
+      component: () => import("../views/Comprasview.vue"),
+      meta: { requiresAuth: true },
+    },
+  ],
+});
+
+router.beforeEach((to,from)=> {
+  const main = useAuthStore()
+  if (to.meta.requiresAuth && !main.isAllowed) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    return {
+      path: "/login",
+      // save the location we were at to come back later
+      query: { redirect: to.fullPath },
+    };
+  }
+})
+
+export default router;
+
 ```
