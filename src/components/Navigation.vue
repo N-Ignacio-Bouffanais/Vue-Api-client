@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue"
+import { useAuthStore } from "../store/auth.state";
+const AuthStore = useAuthStore()
 </script>
 
 <template>
@@ -19,8 +21,8 @@ import { Icon } from "@iconify/vue"
                     <Icon icon="ep:arrow-down" />
                 </button>
                 <router-link to="/">Home</router-link>
-                <router-link to="/login">Login</router-link>
-                <router-link to="/register">Register</router-link>
+                <router-link to="/login" v-show="!AuthStore.isAllowed">Login</router-link>
+                <router-link to="/register" v-show="!AuthStore.isAllowed">Register</router-link>
                 <router-link to="/compras">Mis compras <Icon icon="ep:shopping-cart" width="2rem"/></router-link>
             </div>
         </div>

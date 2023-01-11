@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import axios from "axios";
+import axios from "../libs/axios"
 import { useAuthStore } from "../store/auth.state";
 import { ref } from "vue"
+import router from "../routes";
 
 const AuthStore = useAuthStore()
 
@@ -9,12 +10,16 @@ let email = ref("")
 let password = ref("")
 
 const HandleSubmit = async () => {
-    const res = await axios.post("http://localhost:3000/auth/login",{
+    const res = await axios.post("/auth/login",{
         email: email.value,
         password:password.value
     })
     AuthStore.user_name = res.data.user.name
     AuthStore.token = res.data.token
+    if(AuthStore.token != ''){
+        AuthStore.isAllowed = true,
+        router.push("/clothes")
+    }
 }
 
 </script>
@@ -33,11 +38,13 @@ const HandleSubmit = async () => {
 .form-container {
     display: flex;
     flex-direction: column;
-    margin: 0 5vw;
+    margin: 2rem 5vw;
     align-items: center;
 
     .input-form {
         input {
+            font-size: 1.5rem;
+            border: none;
             outline: none;
             width: 30rem;
             height: 4rem;
@@ -45,6 +52,15 @@ const HandleSubmit = async () => {
             margin: 1rem auto;
             padding: 0 0.7rem;
         }
+    }
+    button{
+        border: none;
+        margin: 1rem auto;
+        width: 30rem;
+        height: 3.4rem;
+        border-radius: 0.5rem;
+        font-size: 1.8rem;
+        background-color: springgreen;
     }
 }
 </style>

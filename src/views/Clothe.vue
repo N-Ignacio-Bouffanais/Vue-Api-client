@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import axios from 'axios';
+import axios from "../libs/axios";
 import { onMounted } from 'vue';
 
 const GetClothe = async () => {
-    const clothes = await axios.get("http://localhost:3000/clothe")
+    const clothes = await axios.get("/clothe")
     console.log(clothes)
 }
 

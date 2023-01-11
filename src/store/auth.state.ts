@@ -4,6 +4,7 @@ export const useAuthStore = defineStore("auth",{
     state: ()=> ({
         token: "",
         user_name: "",
+        isAllowed: false,
     }),
     actions: {
     },
