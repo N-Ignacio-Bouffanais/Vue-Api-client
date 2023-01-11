@@ -5,6 +5,7 @@ specifiers:
   '@vitejs/plugin-vue': 4.0.0
   axios: 1.2.2
   pinia: 2.0.28
+  pinia-plugin-persistedstate: ^3.0.2
   sass: 1.57.1
   typescript: 4.9.3
   vite: 4.0.0
@@ -16,6 +17,7 @@ dependencies:
   '@iconify/vue': 4.0.2_vue@3.2.45
   axios: 1.2.2
   pinia: 2.0.28_mgnvym7yiazkylwwogi5r767ue
+  pinia-plugin-persistedstate: 3.0.2_pinia@2.0.28
   sass: 1.57.1
   vue: 3.2.45
   vue-router: 4.1.6_vue@3.2.45
@@ -627,6 +629,14 @@ packages:
   /picomatch/2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
+
+  /pinia-plugin-persistedstate/3.0.2_pinia@2.0.28:
+    resolution: {integrity: sha512-84vPyUhPA/8Pr+1mT1ioNb2d8z4tvdgYRqMQf8xyauOVBKjo0ZcRBwPQBV7ZAJG43Kwar43nXG2jU+ZMvAFFRQ==}
+    peerDependencies:
+      pinia: ^2.0.0
+    dependencies:
+      pinia: 2.0.28_mgnvym7yiazkylwwogi5r767ue
+    dev: false
 
   /pinia/2.0.28_mgnvym7yiazkylwwogi5r767ue:
     resolution: {integrity: sha512-YClq9DkqCblq9rlyUual7ezMu/iICWdBtfJrDt4oWU9Zxpijyz7xB2xTwx57DaBQ96UGvvTMORzALr+iO5PVMw==}

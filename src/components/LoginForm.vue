@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import axios from "axios";
+import { useAuthStore } from "../store/auth.state";
 import { ref } from "vue"
+
+const AuthStore = useAuthStore()
 
 let email = ref("")
 let password = ref("")
@@ -10,8 +13,8 @@ const HandleSubmit = async () => {
         email: email.value,
         password:password.value
     })
-    console.log(res)
-    console.log(res.data.token)
+    AuthStore.user_name = res.data.user.name
+    AuthStore.token = res.data.token
 }
 
 </script>
