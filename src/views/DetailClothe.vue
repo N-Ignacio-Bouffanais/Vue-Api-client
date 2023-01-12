@@ -4,7 +4,15 @@ import axios from "../libs/axios";
 import { useAuthStore } from "../store/auth.state";
 const store = useAuthStore()
 
-let clothe = ref({})
+let clothe = ref({
+    name: "",
+    brand: "",
+    color:"",
+    price:"",
+    descrition:"",
+    size: "",
+    category:"",
+})
 
 const getClothe = async (store:any) => {
     const url = "/clothe/" + store.clotheId
@@ -17,8 +25,16 @@ onMounted(()=>{
 })
 </script>
 <template>
-    <div>
-        <p>{{ clothe }}</p>
+    <div class="container">
+        <div class="card">
+            <p><span>Product: {{ clothe.name }}</span></p>
+            <p><span>Price: ${{ clothe.price }}</span></p>
+            <p><span>Size: {{ clothe.size }}</span></p>
+            <p><span>Brand: {{ clothe.brand }}</span></p>
+            <p><span>Color: {{ clothe.color }}</span></p>
+            <p><span>Description: {{ clothe.descrition }}</span></p>
+            <p><span>Category: {{ clothe.category }}</span></p>
+        </div>
     </div>
 </template>
 <style lang="scss">

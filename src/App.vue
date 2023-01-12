@@ -40,4 +40,35 @@ body {
     background-color: springgreen;
     font-weight: 500;
 }
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  grid-auto-rows: 14rem;
+  gap: 2rem;
+  width: 90vw;
+  margin: 2rem auto;
+
+  .card {
+    border-radius: 0.8rem;
+    border-style: solid;
+    border-color: #171717;
+    margin: 1rem auto;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    color: black;
+    padding: 1.5rem;
+
+    p {
+      font-size: 1.4rem;
+      font-weight: 600;
+
+      span {
+        font-weight: 300;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
 </style>
