@@ -18,7 +18,7 @@ const HandleSubmit = async () => {
     AuthStore.token = res.data.token
     if(AuthStore.token != ''){
         AuthStore.isAllowed = true,
-        router.push("/clothes")
+        router.push("/clothe")
     }
     console.log(res.status)
 }

@@ -32,14 +32,14 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
-      path: "/clothes",
+      path: "/clothe",
       name: "Clothes",
       component: () => import("../views/Clothe.vue"),
       meta: { requiresAuth: true },
     },
     {
-      path: "/clothes/:id",
-      name: "clothedetail",
+      path: "/clothe/:id",
+      name: "clotheDetail",
       component: () => import("../views/DetailClothe.vue"),
       meta: { requiresAuth: true },
     },

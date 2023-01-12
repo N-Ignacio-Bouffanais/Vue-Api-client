@@ -5,6 +5,7 @@ export const useAuthStore = defineStore("auth",{
         token: "",
         user_name: "",
         isAllowed: false,
+        clotheId: "",
     }),
     actions: {
     },
