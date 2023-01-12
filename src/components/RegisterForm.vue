@@ -10,7 +10,7 @@
         <p class="input-form">
             <input type="password" name="password" id="password" placeholder="******">
         </p>
-        <button>Save</button>
+        <button class="button-submit">SAVE</button>
     </form>
 </template>
 <style lang="scss">
@@ -32,14 +32,5 @@
             padding: 0 0.7rem;
         }
     }
-        button {
-            border: none;
-            margin: 1rem auto;
-            width: 30rem;
-            height: 3.4rem;
-            border-radius: 0.5rem;
-            font-size: 1.8rem;
-            background-color: springgreen;
-        }
 }
 </style>

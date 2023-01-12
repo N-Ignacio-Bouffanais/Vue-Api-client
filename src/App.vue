@@ -30,4 +30,14 @@ body {
     color: white;
   }
 }
+.button-submit{
+  border: none;
+    margin: 1rem auto;
+    width: 30rem;
+    height: 3.4rem;
+    border-radius: 0.5rem;
+    font-size: 1.8rem;
+    background-color: springgreen;
+    font-weight: 500;
+}
 </style>

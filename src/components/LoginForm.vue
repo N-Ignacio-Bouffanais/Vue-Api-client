@@ -20,6 +20,7 @@ const HandleSubmit = async () => {
         AuthStore.isAllowed = true,
         router.push("/clothes")
     }
+    console.log(res.status)
 }
 
 </script>
@@ -31,7 +32,7 @@ const HandleSubmit = async () => {
         <p class="input-form">
             <input type="password" name="password" id="password" placeholder="******" v-model="password">
         </p>
-        <button>Save</button>
+        <button class="button-submit">SAVE</button>
     </form>
 </template>
 <style lang="scss">
@@ -52,15 +53,6 @@ const HandleSubmit = async () => {
             margin: 1rem auto;
             padding: 0 0.7rem;
         }
-    }
-    button{
-        border: none;
-        margin: 1rem auto;
-        width: 30rem;
-        height: 3.4rem;
-        border-radius: 0.5rem;
-        font-size: 1.8rem;
-        background-color: springgreen;
     }
 }
 </style>

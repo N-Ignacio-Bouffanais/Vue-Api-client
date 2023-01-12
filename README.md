@@ -37,7 +37,7 @@ const HandleSubmit = async () => {
     </form>
 ```
 
-## How Protect routes
+## How Protect routes with Vue-router-4 and pinia
 ```ts
 import { createRouter, createWebHistory } from "vue-router";
 import { useAuthStore } from "../store/auth.state";
