@@ -24,7 +24,9 @@ const AuthStore = useAuthStore()
                 <input type="text" placeholder="Search">
                 <Icon icon="material-symbols:search-rounded" />
             </div>
-            <Icon icon="clarity:shopping-cart-line" width="2rem" />
+            <div class="ShopCar">
+                <Icon icon="clarity:shopping-cart-line" width="2rem" />
+            </div>
         </div>
         <div class="bottom">
             <div class="gps">
@@ -107,15 +109,17 @@ $nav-color: #0071dc;
             }
         }
 
-        svg {
-            height: 4rem;
-            width: 4rem;
-            padding: 0.7rem 0;
+        .ShopCar {
+            svg {
+                height: 4rem;
+                width: 4rem;
+                padding: 0.7rem 0;
 
-            &:hover {
-                background-color: #2f3640;
-                border-radius: 100%;
-                cursor: pointer;
+                &:hover {
+                    background-color: #2f3640;
+                    border-radius: 100%;
+                    cursor: pointer;
+                }
             }
         }
     }
@@ -151,13 +155,16 @@ $nav-color: #0071dc;
             font-weight: 500;
             color: white;
         }
-        ul{
+
+        ul {
             display: flex;
             list-style: none;
             align-items: center;
-            li{
+
+            li {
                 margin: 0 1rem;
-                a{
+
+                a {
                     font-size: 1.6rem;
                 }
             }
