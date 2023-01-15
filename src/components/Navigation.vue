@@ -6,78 +6,130 @@ const AuthStore = useAuthStore()
 
 <template>
     <div class="navigation">
-        <div class="search">
-            <input type="text">
-            <span>|</span>
-            <Icon icon="material-symbols:search-rounded" width="2rem" color="black" />
+        <div class="top">
+            <div class="menu">
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <Icon icon="clarity:bars-line" width="3.4rem" />
+                </label>
+                <ul>
+                    <li><router-link to="/">Home</router-link></li>
+                    <li><router-link to="/login" v-show="!AuthStore.isAllowed">Login</router-link></li>
+                    <li><router-link to="/register" v-show="!AuthStore.isAllowed">Register</router-link>
+                    </li>
+                    <li><router-link to="/compras">My Items</router-link></li>
+                </ul>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Search">
+                <Icon icon="material-symbols:search-rounded" />
+            </div>
+            <Icon icon="clarity:shopping-cart-line" width="2rem" />
         </div>
-        <div class="right">
+        <div class="bottom">
             <div class="gps">
                 <Icon icon="gis:location-poi" width="3rem" />
                 <button>Ingresa tu ubicacion</button>
             </div>
-            <div class="links">
-                <button>Category
-                    <Icon icon="ep:arrow-down" />
-                </button>
-                <router-link to="/">Home</router-link>
-                <router-link to="/login" v-show="!AuthStore.isAllowed">Login</router-link>
-                <router-link to="/register" v-show="!AuthStore.isAllowed">Register</router-link>
-                <router-link to="/compras">Mis compras <Icon icon="ep:shopping-cart" width="2rem"/></router-link>
-            </div>
+            <button class="CategoryBtn">Category
+                <Icon icon="ep:arrow-down" />
+            </button>
+            <ul>
+                <li><router-link to="/">Home</router-link></li>
+                <li><router-link to="/login" v-show="!AuthStore.isAllowed">Login</router-link></li>
+                <li><router-link to="/register" v-show="!AuthStore.isAllowed">Register</router-link>
+                </li>
+                <li><router-link to="/compras">My Items</router-link></li>
+            </ul>
+
         </div>
-        <div class="menu"></div>
     </div>
 </template>
 
 <style lang="scss">
-$nav-color: teal;
+$nav-color: #0071dc;
 
 .navigation {
-    height: 10rem;
-    display: flex;
-    align-items: center;
-    padding: 0 5vw;
+    height: 11rem;
+    display: grid;
+    padding: 1rem 5vw;
     background-color: $nav-color;
-    gap: 1rem;
 
-    .search {
-        background-color: white;
+    .top {
         display: flex;
         align-items: center;
-        width: 50vw;
+        justify-content: start;
+        width: 100%;
+        height: 5rem;
 
-        input {
-            border: none;
-            outline: none;
-            width: 100%;
-            height: 4rem;
-            border-radius: 25% 25% 0 0;
-            font-size: 1.2rem;
-            margin-left: 1.5rem;
+        .menu {
+            display: none;
+
+            a {
+                color: white;
+                font-size: 1.6rem;
+                margin-left: 1vw;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+            }
         }
 
-        span {
-            color: gray;
-            font-size: 2.2rem;
+        .search {
+            display: flex;
+            align-items: center;
+            width: 70vw;
+            position: relative;
+            margin: 0 auto;
+
+            input {
+                border: none;
+                outline: none;
+                width: 100%;
+                height: 4rem;
+                font-size: 1.2rem;
+                border-radius: 2rem;
+                padding-left: 1.5rem;
+                font-size: 1.6rem;
+            }
+
+            svg {
+                width: 3.4rem;
+                height: 3.4rem;
+                background-color: yellow;
+                padding: 0.7rem;
+                margin-right: 1rem;
+                color: black;
+                border-radius: 100%;
+                cursor: pointer;
+                position: absolute;
+                right: 0rem;
+            }
         }
 
         svg {
-            width: 3rem;
+            height: 4rem;
+            width: 4rem;
+            padding: 0.7rem 0;
+
+            &:hover {
+                background-color: #2f3640;
+                border-radius: 100%;
+                cursor: pointer;
+            }
         }
     }
 
-    .right {
+    .bottom {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 40vw;
-        gap: 1.4rem;
+        justify-content: space-between;
+        width: 100%;
+        height: 5rem;
 
         .gps {
             display: flex;
             padding-left: 2rem;
-            justify-content: center;
+            align-items: center;
 
             button {
                 width: 100%;
@@ -87,52 +139,75 @@ $nav-color: teal;
                 background-color: $nav-color;
                 margin: 0 0.5rem;
                 cursor: pointer;
+                color: white;
+            }
+        }
 
-                &:hover {
+        .CategoryBtn {
+            cursor: pointer;
+            border: none;
+            background-color: $nav-color;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: white;
+        }
+        ul{
+            display: flex;
+            list-style: none;
+            align-items: center;
+            li{
+                margin: 0 1rem;
+                a{
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    .navigation {
+        .top {
+            .menu {
+                a {
+                    justify-content: center;
+                    margin: 2rem auto;
                     color: white;
+
+                    &:active {
+                        color: #0071dc;
+                    }
+                }
+
+                display: block;
+
+                .checkbtn {
+                    display: block;
+                }
+
+                #check {
+                    display: block;
+                }
+
+                ul {
+                    position: fixed;
+                    width: 100%;
+                    height: 100vh;
+                    background-color: #2f3640;
+                    top: 12rem;
+                    left: 0;
+
+                    li {
+                        display: block;
+                    }
                 }
             }
         }
 
-        .links {
-            display: flex;
-            align-items: center;
-
-            button {
-                cursor: pointer;
-                border: none;
-                background-color: $nav-color;
-                font-size: 1.6rem;
-                font-weight: 500;
-            }
-        }
-    }
-    .menu{
-        display: none;
-    }
-
-    a {
-        color: black;
-        font-size: 1.6rem;
-        margin-left: 1vw;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-    }
-}
-
-@media (max-width: 945px) {
-    .navigation {
-        .right {
+        .bottom {
             display: none;
         }
 
-        .search {
-            width: 75vw;
-        }
-        .menu{
-            display: flex;
-        }
     }
 }
 </style>
