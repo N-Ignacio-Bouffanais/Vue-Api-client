@@ -40,7 +40,7 @@ let active = ref(false);
         <div class="bottom">
             <div class="gps">
                 <Icon icon="gis:location-poi" width="3rem" />
-                <button>Ingresa tu ubicacion</button>
+                <button>Enter your location</button>
             </div>
             <button class="CategoryBtn">Category
                 <Icon icon="ep:arrow-down" />
@@ -50,7 +50,7 @@ let active = ref(false);
                 <li><router-link to="/login" v-show="!AuthStore.isAllowed">Login</router-link></li>
                 <li><router-link to="/register" v-show="!AuthStore.isAllowed">Register</router-link>
                 </li>
-                <li><router-link to="/compras">My Items</router-link></li>
+                <li><router-link to="/shopping">My Items</router-link></li>
             </ul>
 
         </div>
@@ -64,7 +64,7 @@ $nav-height: 11rem;
 .navigation {
     height: $nav-height;
     display: grid;
-    padding: 1rem 5vw;
+    padding: 1rem 6vw;
     background-color: $nav-color;
 
     .top {
