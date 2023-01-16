@@ -8,6 +8,11 @@
 - Pinia and plugin(pinia-plugin-persistedstate) to persist the state
 - Axios with async await
 
+## Screenshot
+
+![solution](./src/assets/solution-movile.JPG)
+
+
 ## Axios with Vuejs Composition API example
 ### TS
 ```ts
