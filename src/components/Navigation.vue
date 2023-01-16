@@ -1,23 +1,32 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue"
+import { watchEffect, ref } from "vue";
+
 import { useAuthStore } from "../store/auth.state";
 const AuthStore = useAuthStore()
+
+let active = ref(false);
+
+watchEffect(()=>{
+    console.log(active.value)
+})
+
 </script>
 
 <template>
     <div class="navigation">
         <div class="top">
             <div class="menu">
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                    <Icon icon="clarity:bars-line" width="3.4rem" />
+                <label class="checkbtn">
+                    <Icon v-on:click="active = !active"
+                        icon="clarity:bars-line" width="3.4rem" />
                 </label>
-                <ul>
-                    <li><router-link to="/">Home</router-link></li>
-                    <li><router-link to="/login" v-show="!AuthStore.isAllowed">Login</router-link></li>
-                    <li><router-link to="/register" v-show="!AuthStore.isAllowed">Register</router-link>
+                <ul v-bind:class="{ show: active }">
+                    <li v-on:click="active = !active" ><router-link to="/">Home</router-link></li>
+                    <li v-on:click="active = !active" ><router-link to="/login" v-show="!AuthStore.isAllowed">Login</router-link></li>
+                    <li v-on:click="active = !active" ><router-link to="/register" v-show="!AuthStore.isAllowed">Register</router-link>
                     </li>
-                    <li><router-link to="/compras">My Items</router-link></li>
+                    <li v-on:click="active = !active" ><router-link to="/shopping">My Items</router-link></li>
                 </ul>
             </div>
             <div class="search">
@@ -25,7 +34,11 @@ const AuthStore = useAuthStore()
                 <Icon icon="material-symbols:search-rounded" />
             </div>
             <div class="ShopCar">
-                <Icon icon="clarity:shopping-cart-line" width="2rem" />
+                <router-link to="/shopping">
+                    <Icon icon="clarity:shopping-cart-line" width="2rem" />
+                    <span>$0.00</span>
+                </router-link>
+                
             </div>
         </div>
         <div class="bottom">
@@ -50,9 +63,10 @@ const AuthStore = useAuthStore()
 
 <style lang="scss">
 $nav-color: #0071dc;
+$nav-height: 11rem;
 
 .navigation {
-    height: 11rem;
+    height: $nav-height;
     display: grid;
     padding: 1rem 5vw;
     background-color: $nav-color;
@@ -98,7 +112,7 @@ $nav-color: #0071dc;
             svg {
                 width: 3.4rem;
                 height: 3.4rem;
-                background-color: yellow;
+                background-color: rgb(255, 196, 0);
                 padding: 0.7rem;
                 margin-right: 1rem;
                 color: black;
@@ -110,16 +124,24 @@ $nav-color: #0071dc;
         }
 
         .ShopCar {
-            svg {
-                height: 4rem;
-                width: 4rem;
-                padding: 0.7rem 0;
-
-                &:hover {
-                    background-color: #2f3640;
-                    border-radius: 100%;
-                    cursor: pointer;
-                }
+            a{
+                display: flex;
+                    flex-direction: column;
+                    height: 4.8rem;
+                    width: 4.8rem;
+                    align-items: center;
+                    justify-content: center;
+                
+                    &:hover {
+                        background-color: #233349;
+                        border-radius: 100%;
+                        cursor: pointer;
+                    }
+                
+                    svg {
+                        height: 2.6rem;
+                        width: 2.6rem;
+                    }
             }
         }
     }
@@ -178,8 +200,9 @@ $nav-color: #0071dc;
             .menu {
                 a {
                     justify-content: center;
-                    margin: 2rem auto;
+                    margin: 3rem auto;
                     color: white;
+                    font-size: 2rem;
 
                     &:active {
                         color: #0071dc;
@@ -190,10 +213,11 @@ $nav-color: #0071dc;
 
                 .checkbtn {
                     display: block;
+                    cursor: pointer;
                 }
 
-                #check {
-                    display: block;
+                .show {
+                    left: -100%;
                 }
 
                 ul {
@@ -201,8 +225,9 @@ $nav-color: #0071dc;
                     width: 100%;
                     height: 100vh;
                     background-color: #2f3640;
-                    top: 12rem;
+                    top: $nav-height;
                     left: 0;
+                    transition: all .5s;
 
                     li {
                         display: block;

@@ -20,9 +20,9 @@ const router = createRouter({
       component: () => import("../views/RegisterView.vue"),
     },
     {
-      path: "/compras",
-      name: "Compras",
-      component: () => import("../views/Comprasview.vue"),
+      path: "/shopping",
+      name: "Shopping",
+      component: () => import("../views/Shopview.vue"),
       meta: { requiresAuth: true },
     },
     {
