@@ -75,3 +75,79 @@ router.beforeEach((to,from)=> {
 export default router;
 
 ```
+
+## Menu responsive with Sass, Vuejs Composition API(ref)
+```ts
+import { ref } from "vue";
+let active = ref(false);
+```
+```html
+<div class="menu">
+                <label class="checkbtn">
+                    <Icon v-on:click="active = !active"
+                        icon="clarity:bars-line" width="3.4rem" />
+                </label>
+                <ul v-bind:class="{ show: active }">
+                    <li v-on:click="active = !active" ><router-link to="/">Home</router-link></li>
+                    <li v-on:click="active = !active" ><router-link to="/login">Login</router-link></li>
+                    <li v-on:click="active = !active" ><router-link to="/register" >Register</router-link>
+                    </li>
+                    <li v-on:click="active = !active" ><router-link to="/shopping">My Items</router-link></li>
+                </ul>
+            </div>
+```
+```scss
+.menu {
+  display: none;
+  a {
+    color: white;
+    font-size: 1.6rem;
+    margin-left: 1vw;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1100px) {
+    .navigation {
+            .menu {
+                a {
+                    justify-content: center;
+                    margin: 3rem auto;
+                    color: white;
+                    font-size: 2rem;
+
+                    &:active {
+                        color: #0071dc;
+                    }
+                }
+
+                display: block;
+
+                .checkbtn {
+                    display: block;
+                    cursor: pointer;
+                }
+
+                .show {
+                    left: -100%;
+                }
+
+                ul {
+                    position: fixed;
+                    width: 100%;
+                    height: 100vh;
+                    background-color: #2f3640;
+                    top: 11rem;
+                    left: 0;
+                    transition: all .5s;
+
+                    li {
+                        display: block;
+                    }
+                }
+            }
+    }
+}
+```

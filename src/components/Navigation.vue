@@ -1,15 +1,11 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue"
-import { watchEffect, ref } from "vue";
+import { ref } from "vue";
 
 import { useAuthStore } from "../store/auth.state";
 const AuthStore = useAuthStore()
 
 let active = ref(false);
-
-watchEffect(()=>{
-    console.log(active.value)
-})
 
 </script>
 
