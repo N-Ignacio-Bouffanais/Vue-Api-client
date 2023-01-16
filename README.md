@@ -14,7 +14,6 @@
 
 
 ## Axios with Vuejs Composition API example
-### TS
 ```ts
 import axios from "axios";
 import { ref } from "vue"
@@ -31,7 +30,6 @@ const HandleSubmit = async () => {
     console.log(res.data.token)
 }
 ```
-### HTML
 ```html
     <form @submit.prevent="HandleSubmit" class="form-container">
         <p class="input-form">
@@ -84,12 +82,10 @@ export default router;
 ```
 
 ## Menu responsive with Sass, Vuejs Composition API(ref)
-### TS
 ```ts
 import { ref } from "vue";
 let active = ref(false);
 ```
-### HTML
 ```html
 <div class="menu">
                 <label class="checkbtn">
@@ -105,7 +101,6 @@ let active = ref(false);
                 </ul>
             </div>
 ```
-### SCSS
 ```scss
 .menu {
   display: none;
