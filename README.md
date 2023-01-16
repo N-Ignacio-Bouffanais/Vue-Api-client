@@ -77,10 +77,12 @@ export default router;
 ```
 
 ## Menu responsive with Sass, Vuejs Composition API(ref)
+### ts
 ```ts
 import { ref } from "vue";
 let active = ref(false);
 ```
+### html
 ```html
 <div class="menu">
                 <label class="checkbtn">
@@ -96,6 +98,7 @@ let active = ref(false);
                 </ul>
             </div>
 ```
+### scss
 ```scss
 .menu {
   display: none;
