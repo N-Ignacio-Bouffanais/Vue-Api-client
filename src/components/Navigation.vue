@@ -18,9 +18,9 @@ let active = ref(false);
                         icon="clarity:bars-line" width="3.4rem" />
                 </label>
                 <ul v-bind:class="{ show: active }">
-                    <li v-on:click="active = !active" ><router-link to="/">Home</router-link></li>
-                    <li v-on:click="active = !active" ><router-link to="/login" v-show="!AuthStore.isAllowed">Login</router-link></li>
-                    <li v-on:click="active = !active" ><router-link to="/register" v-show="!AuthStore.isAllowed">Register</router-link>
+                    <li v-on:click="active = !active" ><router-link to="/"> Home</router-link></li>
+                    <li v-on:click="active = !active" ><router-link to="/login" v-show="!AuthStore.isAllowed"><Icon icon="carbon:user-filled" width="2.5rem" />Login</router-link></li>
+                    <li v-on:click="active = !active" ><router-link to="/register" v-show="!AuthStore.isAllowed"><Icon icon="carbon:user-filled" width="2.5rem" />Register</router-link>
                     </li>
                     <li v-on:click="active = !active" ><router-link to="/shopping">My Items</router-link></li>
                 </ul>
@@ -42,13 +42,10 @@ let active = ref(false);
                 <Icon icon="gis:location-poi" width="3rem" />
                 <button>Enter your location</button>
             </div>
-            <button class="CategoryBtn">Category
-                <Icon icon="ep:arrow-down" />
-            </button>
             <ul>
                 <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/login" v-show="!AuthStore.isAllowed">Login</router-link></li>
-                <li><router-link to="/register" v-show="!AuthStore.isAllowed">Register</router-link>
+                <li><router-link to="/login" v-show="!AuthStore.isAllowed"><Icon icon="carbon:user-filled" width="2rem" /> Login</router-link></li>
+                <li><router-link to="/register" v-show="!AuthStore.isAllowed"><Icon icon="carbon:user-filled" width="2rem" /> Register</router-link>
                 </li>
                 <li><router-link to="/shopping">My Items</router-link></li>
             </ul>
@@ -195,10 +192,11 @@ $nav-height: 11rem;
         .top {
             .menu {
                 a {
+                    cursor: pointer;
                     justify-content: center;
-                    margin: 3rem auto;
+                    margin: 4rem auto;
                     color: white;
-                    font-size: 2rem;
+                    font-size: 2.5rem;
 
                     &:active {
                         color: #0071dc;
