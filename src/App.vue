@@ -22,7 +22,7 @@ import Navigation from './components/Navigation.vue';
 }
 
 body {
-  background-color: #202020;
+  background-color: #192636;
   color: white;
 
   a {
@@ -42,8 +42,6 @@ body {
 }
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-  grid-auto-rows: 14rem;
   gap: 2rem;
   width: 90vw;
   margin: 2rem auto;

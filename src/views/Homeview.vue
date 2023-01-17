@@ -1,12 +1,23 @@
 <script setup lang="ts">
-//importare un componente de solo clothes , otro de electronics debajo, y ambos tendran un boton para poder ver la vista de ropa o tecnologia respectivamente.
+import { defineAsyncComponent } from 'vue';
 
+
+const ClotheSample = defineAsyncComponent(()=> import("../components/ClotheSample.vue"))
 </script>
 
 <template>
-    <h1>Home</h1>
+    <ClotheSample :amount="3" />
 </template>
 
 <style lang="scss">
-
+.container {
+    display: grid;
+    .card {
+        border: none;
+        background-color: #203e64;
+        p{
+            color: white;
+        }
+    }
+}
 </style>
